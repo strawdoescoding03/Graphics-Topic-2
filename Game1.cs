@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -15,6 +16,8 @@ namespace Graphics_Topic_2
         Texture2D rectangleTexture, circleTexture;
         SpriteFont titleFont;
 
+        int busGrateFront = 240;
+
 
         public Game1()
         {
@@ -29,7 +32,7 @@ namespace Graphics_Topic_2
 
             base.Initialize();
 
-            rectangleRect = new Rectangle(250, 250, 250, 200);
+            rectangleRect = new Rectangle(250, 290, 250, 120);
 
             circleRect = new Rectangle (225, 100, 300, 100);
 
@@ -57,6 +60,10 @@ namespace Graphics_Topic_2
             // TODO: Add your update logic here
 
             base.Update(gameTime);
+
+
+
+
         }
 
         protected override void Draw(GameTime gameTime)
@@ -65,24 +72,55 @@ namespace Graphics_Topic_2
 
             _spriteBatch.Begin();
 
+            
+            //Body
+            
             _spriteBatch.Draw(circleTexture, circleRect, Color.Yellow);
 
 
-            _spriteBatch.Draw(rectangleTexture, new Rectangle(240, 130, 270, 220), Color.Yellow);
+            _spriteBatch.Draw(rectangleTexture, new Rectangle(240, 130, 270, 250), Color.Yellow);
+            _spriteBatch.Draw(rectangleTexture, new Rectangle(240, 300, 270, 100), Color.Black);
             _spriteBatch.Draw(rectangleTexture, rectangleRect, Color.Gray);
             //_spriteBatch.Draw(circleTexture, new Rectangle(200, 210, 100, 100), Color.White);
 
 
+            _spriteBatch.Draw(rectangleTexture, new Rectangle(250, 180, 120, 100), Color.PowderBlue);
+            _spriteBatch.Draw(rectangleTexture, new Rectangle(380, 180, 120, 100), Color.PowderBlue);
 
-
+           
             
+            //Grate lines Front
+            
+            for (int i = 0; i < 14; i++)
+
+            {
+                
+                _spriteBatch.Draw(rectangleTexture, new Rectangle(i * 20 + busGrateFront, 300, 10, 100), Color.Black);
+            }
+
+            for (int x = busGrateFront; x < 380; x += 20)
+            {
+
+            }
+            
+            //Left window glare
+
+            _spriteBatch.Draw(rectangleTexture, new Rectangle(330, 200, 10, 10), Color.White);
+            _spriteBatch.Draw(rectangleTexture, new Rectangle(340, 210, 10, 10), Color.White);
+            _spriteBatch.Draw(rectangleTexture, new Rectangle(350, 220, 10, 10), Color.White);
+
+
+            //Right window glare
+
+            _spriteBatch.Draw(rectangleTexture, new Rectangle(460, 200, 10, 10), Color.White);
+            _spriteBatch.Draw(rectangleTexture, new Rectangle(470, 210, 10, 10), Color.White);
+            _spriteBatch.Draw(rectangleTexture, new Rectangle(480, 220, 10, 10), Color.White);
+
+
+            _spriteBatch.DrawString(titleFont, "SCHEWL BUS", new Vector2(240, 130), Color.Black);
 
 
 
-            _spriteBatch.DrawString(titleFont, "Hello little gremlin", new Vector2(20, 20), Color.Purple);
-            
-            
-            
             _spriteBatch.End();
 
 
