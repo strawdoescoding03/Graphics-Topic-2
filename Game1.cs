@@ -13,10 +13,12 @@ namespace Graphics_Topic_2
 
         Rectangle rectangleRect;
         Rectangle circleRect;
-        Texture2D rectangleTexture, circleTexture;
+        Rectangle stopSignRect;
+        Texture2D rectangleTexture, circleTexture, stopSignTexture;
         SpriteFont titleFont;
 
         int busGrateFront = 240;
+        int doorGrate = 200;
 
 
         public Game1()
@@ -34,9 +36,9 @@ namespace Graphics_Topic_2
 
             rectangleRect = new Rectangle(250, 290, 250, 120);
 
-            circleRect = new Rectangle (225, 100, 300, 100);
+            circleRect = new Rectangle (240, 80, 270, 100);
 
-
+            stopSignRect = new Rectangle(510, 200, 60, 60);
 
         }
 
@@ -48,6 +50,7 @@ namespace Graphics_Topic_2
             rectangleTexture = Content.Load<Texture2D>("rectangle");
             circleTexture = Content.Load<Texture2D>("circle");
             titleFont = Content.Load<SpriteFont>("titleFont");
+            stopSignTexture = Content.Load<Texture2D>("Stop_sign");
 
             // TODO: use this.Content to load your game content here
         }
@@ -98,11 +101,7 @@ namespace Graphics_Topic_2
                 _spriteBatch.Draw(rectangleTexture, new Rectangle(i * 20 + busGrateFront, 300, 10, 100), Color.Black);
             }
 
-            for (int x = busGrateFront; x < 380; x += 20)
-            {
-
-            }
-            
+           
             //Left window glare
 
             _spriteBatch.Draw(rectangleTexture, new Rectangle(330, 200, 10, 10), Color.White);
@@ -117,13 +116,29 @@ namespace Graphics_Topic_2
             _spriteBatch.Draw(rectangleTexture, new Rectangle(480, 220, 10, 10), Color.White);
 
 
-            _spriteBatch.DrawString(titleFont, "SCHEWL BUS", new Vector2(240, 130), Color.Black);
+            //Side Door
+            
+            _spriteBatch.Draw(rectangleTexture, new Rectangle(190, 190, 50, 200), Color.DimGray);
+            _spriteBatch.Draw(rectangleTexture, new Rectangle(200, 200, 40, 150), Color.PowderBlue);
 
+
+
+            for (int i = 0; i < 4; i++)
+
+            {
+
+                _spriteBatch.Draw(rectangleTexture, new Rectangle(i * 10 + doorGrate, 360, 5, 20), Color.Gray);
+            }
+
+
+            //Bus Accessories 
+
+            _spriteBatch.DrawString(titleFont, "SCHEWL BUS", new Vector2(249, 120), Color.Black);
+
+            _spriteBatch.Draw(stopSignTexture, stopSignRect, Color.White);
 
 
             _spriteBatch.End();
-
-
 
             // TODO: Add your drawing code here
 

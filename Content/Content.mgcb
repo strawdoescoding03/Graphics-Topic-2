@@ -37,6 +37,33 @@
 /processorParam:TextureFormat=Color
 /build:rectangle.png
 
+#begin SchoolBusFont.otf
+/copy:SchoolBusFont.otf
+
+#begin Screenshot 2021-01-21 at 7.34.57 PM.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Screenshot 2021-01-21 at 7.34.57 PM.png;slub.png
+
+#begin Stop_sign.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Stop_sign.png
+
 #begin titleFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
