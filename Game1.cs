@@ -11,8 +11,7 @@ namespace Graphics_Topic_2
         private SpriteBatch _spriteBatch;
 
 
-        Rectangle rectangleRect;
-        Rectangle circleRect;
+        Rectangle rectangleRect, yellowOuterTop, orangeLights, redLights;
         Rectangle stopSignRect;
         Texture2D rectangleTexture, circleTexture, stopSignTexture;
         SpriteFont titleFont;
@@ -36,8 +35,8 @@ namespace Graphics_Topic_2
 
             rectangleRect = new Rectangle(250, 290, 250, 120);
 
-            circleRect = new Rectangle (240, 80, 270, 100);
-
+            yellowOuterTop = new Rectangle (240, 80, 270, 100);
+            orangeLights = new Rectangle(260, 110, 15, 15);
             stopSignRect = new Rectangle(510, 200, 60, 60);
 
         }
@@ -78,10 +77,13 @@ namespace Graphics_Topic_2
             
             //Body
             
-            _spriteBatch.Draw(circleTexture, circleRect, Color.Yellow);
+            _spriteBatch.Draw(circleTexture, yellowOuterTop, Color.Yellow);
+            _spriteBatch.Draw(circleTexture, yellowOuterTop, Color.Black);
+            _spriteBatch.Draw(rectangleTexture, new Rectangle(280, 100,190, 250), Color.Yellow);
 
 
             _spriteBatch.Draw(rectangleTexture, new Rectangle(240, 130, 270, 250), Color.Yellow);
+
             _spriteBatch.Draw(rectangleTexture, new Rectangle(240, 300, 270, 100), Color.Black);
             _spriteBatch.Draw(rectangleTexture, rectangleRect, Color.Gray);
             //_spriteBatch.Draw(circleTexture, new Rectangle(200, 210, 100, 100), Color.White);
@@ -131,9 +133,15 @@ namespace Graphics_Topic_2
             }
 
 
+            for (int i = 0; i< 2; i++)
+            {
+                _spriteBatch.Draw(circleTexture, new Rectangle(i * 220 + orangeLights.X, orangeLights.Y, orangeLights.Width, orangeLights.Height), Color.OrangeRed);
+            }
+
+
             //Bus Accessories 
 
-            _spriteBatch.DrawString(titleFont, "SCHEWL BUS", new Vector2(249, 120), Color.Black);
+            _spriteBatch.DrawString(titleFont, "SCHOOLBUS", new Vector2(290, 100), Color.Black);
 
             _spriteBatch.Draw(stopSignTexture, stopSignRect, Color.White);
 
